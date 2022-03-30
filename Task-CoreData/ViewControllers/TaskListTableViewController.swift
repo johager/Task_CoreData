@@ -39,11 +39,9 @@ extension TaskListTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
         
-        var config = cell.defaultContentConfiguration()
-        config.text = TaskController.shared.tasks[indexPath.row].name
-        cell.contentConfiguration = config
+        cell.configure(with: TaskController.shared.tasks[indexPath.row], andDelegate: self)
         
         return cell
     }
@@ -53,4 +51,16 @@ extension TaskListTableViewController {
 
 extension TaskListTableViewController {
 
+}
+
+// MARK: - TaskTableViewCellDelegate
+
+extension TaskListTableViewController: TaskTableViewCellDelegate {
+    
+    func completionButtonTapped(for cell: TaskTableViewCell) {
+        print(#function)
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        TaskController.shared.toggleIsComplete(atIndex: indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
 }

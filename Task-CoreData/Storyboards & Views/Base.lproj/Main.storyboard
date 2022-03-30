@@ -17,23 +17,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" textLabel="KHu-yN-HfW" style="IBUITableViewCellStyleDefault" id="hRH-nK-Tcr">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="161" id="hRH-nK-Tcr" customClass="TaskTableViewCell" customModule="Task_CoreData" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="161"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hRH-nK-Tcr" id="c2f-l8-TRh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="KHu-yN-HfW">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="194" translatesAutoresizingMaskIntoConstraints="NO" id="3xF-XH-WsG">
+                                            <rect key="frame" x="28" y="15" width="358" height="131"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="tK9-i1-UFB">
+                                                    <rect key="frame" x="0.0" y="48" width="140" height="35.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w3-5n-bi8">
+                                                            <rect key="frame" x="0.0" y="0.0" width="140" height="17"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(due)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-x9-fc9">
+                                                            <rect key="frame" x="0.0" y="21" width="140" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5X-gH-4ms">
+                                                    <rect key="frame" x="334" y="53.5" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="V5X-gH-4ms" secondAttribute="height" multiplier="1:1" id="1p6-pT-nmH"/>
+                                                        <constraint firstAttribute="width" constant="24" id="8Tx-w1-StF"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="incomplete">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="completionButtonTapped:" destination="hRH-nK-Tcr" eventType="touchUpInside" id="1an-oQ-tGu"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3xF-XH-WsG" secondAttribute="bottom" constant="4" id="1Jz-g1-7XN"/>
+                                        <constraint firstItem="3xF-XH-WsG" firstAttribute="leading" secondItem="c2f-l8-TRh" secondAttribute="leadingMargin" constant="8" id="ALX-pf-szY"/>
+                                        <constraint firstItem="3xF-XH-WsG" firstAttribute="top" secondItem="c2f-l8-TRh" secondAttribute="topMargin" constant="4" id="gHu-xz-Yno"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3xF-XH-WsG" secondAttribute="trailing" constant="8" id="wcc-jU-yaF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="completionButton" destination="V5X-gH-4ms" id="fRT-eR-0DF"/>
+                                    <outlet property="dueDateLabel" destination="m1c-x9-fc9" id="Qy2-uG-zx5"/>
+                                    <outlet property="taskNameLabel" destination="0w3-5n-bi8" id="jx6-qf-QtT"/>
                                     <segue destination="pDg-Yl-wlL" kind="show" identifier="showTaskDetails" id="SyU-sa-SHa"/>
                                 </connections>
                             </tableViewCell>
@@ -53,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy9-oN-lu3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547" y="104"/>
+            <point key="canvasLocation" x="546.37681159420299" y="103.79464285714285"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="4ce-wb-5mi">
@@ -159,6 +198,7 @@
         <segue reference="SyU-sa-SHa"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="incomplete" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
