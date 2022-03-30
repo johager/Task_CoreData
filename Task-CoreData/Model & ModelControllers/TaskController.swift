@@ -46,4 +46,10 @@ class TaskController {
         tasks[index].isComplete.toggle()
         CoreDataStack.saveContext()
     }
+    
+    func delete(atIndex index: Int) {
+        CoreDataStack.context.delete(tasks[index])
+        CoreDataStack.saveContext()
+        tasks.remove(at: index)
+    }
 }
