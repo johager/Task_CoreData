@@ -19,7 +19,7 @@ class TaskController {
     }()
     
     private init() {
-        fetch()
+        showUncompleted()
     }
     
     // MARK: - CRUD
@@ -37,6 +37,16 @@ class TaskController {
         }
     }
     
+    func showUncompleted() {
+        fetchRequest.predicate = NSPredicate(format: "isComplete == %d", false)
+        fetch()
+    }
+    
+    func showCompleted() {
+        fetchRequest.predicate = NSPredicate(format: "isComplete == %d", true)
+        fetch()
+    }
+    
     func update(_ task: Task, name: String, notes: String?, dueDate: Date?) {
         task.update(name: name, notes: notes, dueDate: dueDate)
         CoreDataStack.saveContext()
@@ -44,6 +54,7 @@ class TaskController {
     
     func toggleIsComplete(atIndex index: Int) {
         tasks[index].isComplete.toggle()
+        tasks.remove(at: index)
         CoreDataStack.saveContext()
     }
     
