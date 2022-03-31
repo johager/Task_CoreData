@@ -17,12 +17,13 @@ class Task: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var notes: String?
     
-    @NSManaged var takenDates: NSSet?
+    @NSManaged var project: Project
     
     // MARK: - Init
     
-    @discardableResult convenience init(name: String, notes: String?, dueDate: Date?, isComplete: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
+    @discardableResult convenience init(project: Project, name: String, notes: String?, dueDate: Date?, isComplete: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
         self.init(context: context)
+        self.project = project
         self.name = name
         self.notes = notes
         self.dueDate = dueDate

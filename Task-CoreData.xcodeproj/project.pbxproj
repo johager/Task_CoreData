@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F83BDB7D27F54A650078B00C /* ProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BDB7C27F54A650078B00C /* ProjectController.swift */; };
 		F859EA3827F5170A00B5CF03 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859EA3727F5170A00B5CF03 /* TaskTableViewCell.swift */; };
 		F859EA3A27F5187E00B5CF03 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859EA3927F5187E00B5CF03 /* Date+.swift */; };
+		F859EA3C27F544B100B5CF03 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859EA3B27F544B100B5CF03 /* Project.swift */; };
+		F859EA4027F5475F00B5CF03 /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F859EA3F27F5475F00B5CF03 /* ProjectListViewController.swift */; };
 		F8EB0DA927F3C0B30002C9BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB0DA827F3C0B30002C9BD /* AppDelegate.swift */; };
 		F8EB0DAB27F3C0B30002C9BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB0DAA27F3C0B30002C9BD /* SceneDelegate.swift */; };
 		F8EB0DB027F3C0B30002C9BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EB0DAE27F3C0B30002C9BD /* Main.storyboard */; };
@@ -23,8 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F83BDB7C27F54A650078B00C /* ProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectController.swift; sourceTree = "<group>"; };
 		F859EA3727F5170A00B5CF03 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		F859EA3927F5187E00B5CF03 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		F859EA3B27F544B100B5CF03 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		F859EA3F27F5475F00B5CF03 /* ProjectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
 		F8EB0DA527F3C0B30002C9BD /* Task-CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task-CoreData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EB0DA827F3C0B30002C9BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8EB0DAA27F3C0B30002C9BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +111,8 @@
 			children = (
 				F8EB0DC727F3C9CD0002C9BD /* CoreDataStack.swift */,
 				F8EB0DC427F3C9BE0002C9BD /* DataModel.xcdatamodeld */,
+				F859EA3B27F544B100B5CF03 /* Project.swift */,
+				F83BDB7C27F54A650078B00C /* ProjectController.swift */,
 				F8EB0DC927F3CA720002C9BD /* Task.swift */,
 				F8EB0DCB27F3CB4D0002C9BD /* TaskController.swift */,
 			);
@@ -114,6 +122,7 @@
 		F8EB0DBF27F3C13C0002C9BD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F859EA3F27F5475F00B5CF03 /* ProjectListViewController.swift */,
 				F8EB0DC227F3C5930002C9BD /* TaskDetailViewController.swift */,
 				F8EB0DC027F3C26F0002C9BD /* TaskListTableViewController.swift */,
 			);
@@ -191,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83BDB7D27F54A650078B00C /* ProjectController.swift in Sources */,
 				F8EB0DC127F3C26F0002C9BD /* TaskListTableViewController.swift in Sources */,
 				F8EB0DC627F3C9BE0002C9BD /* DataModel.xcdatamodeld in Sources */,
 				F859EA3827F5170A00B5CF03 /* TaskTableViewCell.swift in Sources */,
@@ -198,6 +208,8 @@
 				F8EB0DC827F3C9CD0002C9BD /* CoreDataStack.swift in Sources */,
 				F8EB0DC327F3C5930002C9BD /* TaskDetailViewController.swift in Sources */,
 				F8EB0DCA27F3CA720002C9BD /* Task.swift in Sources */,
+				F859EA3C27F544B100B5CF03 /* Project.swift in Sources */,
+				F859EA4027F5475F00B5CF03 /* ProjectListViewController.swift in Sources */,
 				F859EA3A27F5187E00B5CF03 /* Date+.swift in Sources */,
 				F8EB0DCC27F3CB4D0002C9BD /* TaskController.swift in Sources */,
 				F8EB0DAB27F3C0B30002C9BD /* SceneDelegate.swift in Sources */,
@@ -346,7 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 37H8X6K6NN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Task-CoreData/Resources/Info.plist";
@@ -374,7 +386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 37H8X6K6NN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Task-CoreData/Resources/Info.plist";

@@ -13,38 +13,35 @@ class TaskController {
     
     var tasks = [Task]()
     
-    private lazy var fetchRequest: NSFetchRequest<Task> = {
-        let request = NSFetchRequest<Task>(entityName: "Task")
-        return request
-    }()
+    private var project: Project!
+    private var allTasks = [Task]()
     
     private init() {
         showUncompleted()
     }
     
+    // MARK: - Assign Tasks
+    
+    func setProject(_ project: Project) {
+        self.project = project
+        allTasks = Array(project.tasks as! Set<Task>)
+        showUncompleted()
+        print("\(#function) - name: \(project.name), allTasks.count: \(allTasks.count), tasks.count: \(tasks.count)")
+    }
+    
     // MARK: - CRUD
     
     func create(name: String, notes: String?, dueDate: Date?) {
-        tasks.append(Task(name: name, notes: notes, dueDate: dueDate))
+        tasks.append(Task(project: project, name: name, notes: notes, dueDate: dueDate))
         CoreDataStack.saveContext()
     }
     
-    func fetch() {
-        do {
-            tasks = try CoreDataStack.context.fetch(fetchRequest)
-        } catch {
-            print("Error fetching tasks: \(error)")
-        }
-    }
-    
     func showUncompleted() {
-        fetchRequest.predicate = NSPredicate(format: "isComplete == %d", false)
-        fetch()
+        tasks = allTasks.filter { !$0.isComplete}
     }
     
     func showCompleted() {
-        fetchRequest.predicate = NSPredicate(format: "isComplete == %d", true)
-        fetch()
+        tasks = allTasks.filter { $0.isComplete}
     }
     
     func update(_ task: Task, name: String, notes: String?, dueDate: Date?) {
